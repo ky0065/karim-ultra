@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light dark; }
+html, body, #__next { height: 100%; }
+body { @apply bg-neutral-50 dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100; }
+kbd { @apply px-1 py-0.5 text-xs rounded border border-neutral-400 dark:border-neutral-600; }
+.prose pre { @apply p-3 rounded bg-neutral-900 text-neutral-100 overflow-auto; }
+.prose code { @apply break-words; }
+.prose pre code { @apply bg-transparent p-0; }
