@@ -1,5 +1,14 @@
-generator client { provider = "prisma-client-js" }
-datasource db { provider = "sqlite"; url = env("DATABASE_URL") }
+# This Prisma schema defines the database models and generator for Prisma Client.
+# Updated for correct formatting and casing.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
 
 model Session {
   id        String    @id @default(cuid())
@@ -9,7 +18,7 @@ model Session {
 }
 
 model Message {
-  id        String   @id @default(cuid())
+  id        String    @id @default(cuid())
   role      String
   content   String
   createdAt DateTime @default(now())
