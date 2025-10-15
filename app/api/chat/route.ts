@@ -11,7 +11,11 @@ async function retrieveTopContext(query: string, k=5) {
   const docs = await prisma.doc.findMany({});
   const scored: {score:number; text:string; title:string}[] = [];
   for (const d of docs) {
-    for (const ch of (d.chunks as any[] || [])) {
+      const  chunks: any[] = typeof d.chunks === "string" ? (d.chunks ? JSON.parse(d.chunks) : []) : (d.chunks as any[]);
+
+      
+    for (const ch of chunks) {
+
       const score = cosineSim(qvec, ch.embedding || []);
       scored.push({ score, text: ch.text, title: d.title });
     }
